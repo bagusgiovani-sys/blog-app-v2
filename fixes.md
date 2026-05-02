@@ -51,7 +51,7 @@ Each entry: date, what changed, files touched, commit hash.
 | Client component (moved from page.tsx) | `src/app/(main)/posts/[id]/PostDetailClient.tsx` |
 | Client component (moved from page.tsx) | `src/app/(main)/profile/[username]/UserProfileClient.tsx` |
 
-## 2026-05-02 — `(pending)` — Phase 4: Functionality audit fixes
+## 2026-05-02 — `5886257` — Phase 4: Functionality audit fixes
 
 **Files changed:** 10 files
 
