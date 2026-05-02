@@ -33,11 +33,11 @@
 - [x] Scope `serializableCheck` to only affected actions instead of blanket `false`
 - [x] Remove empty `AuthGuard.tsx` and `Protected.tsx`
 
-### Phase 3 — Bonus Features (from README checklist)
-- [ ] Search functionality (SearchBar exists, wire up to `/search` page)
-- [ ] Pagination (Pagination component exists, integrate into PostList)
-- [ ] SEO optimization (metadata per page)
-- [ ] Animations/transitions
+### Phase 3 — Bonus Features ✅ (commit `4198b09`)
+- [x] Search functionality — already wired (Navbar → `/search?q=` → SearchPage)
+- [x] Pagination — already wired on home and search pages
+- [x] SEO optimization — per-page metadata, dynamic `generateMetadata` for posts and profiles
+- [x] Animations/transitions — `fadeIn` keyframe, staggered PostCard entrance
 
 ---
 

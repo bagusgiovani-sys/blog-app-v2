@@ -26,3 +26,27 @@ Each entry: date, what changed, files touched, commit hash.
 | Project guidance for Claude Code | `CLAUDE.md` |
 | Architecture rating and planned changes | `progress.md` |
 | This change log | `fixes.md` |
+
+## 2026-05-02 — `4198b09` — Phase 3: SEO, animations, server component wrappers
+
+**Files changed:** 18 files, +853 / -1010
+
+| Change | Full File Path |
+|--------|----------------|
+| Root layout title template + default description | `src/app/layout.tsx` |
+| `fadeIn` keyframe + `.animate-fade-in` CSS utility | `src/app/globals.css` |
+| Staggered PostCard entrance (50ms per card) | `src/features/posts/components/PostList.tsx` |
+| Server wrapper — static metadata | `src/app/(main)/page.tsx` |
+| Server wrapper — static metadata | `src/app/(main)/search/page.tsx` |
+| Server wrapper — static metadata | `src/app/(main)/write/page.tsx` |
+| Server wrapper — static metadata | `src/app/(main)/profile/page.tsx` |
+| Server wrapper — `generateMetadata` (fetches post title/og) | `src/app/(main)/posts/[id]/page.tsx` |
+| Server wrapper — `generateMetadata` (fetches user name/headline) | `src/app/(main)/profile/[username]/page.tsx` |
+| Server wrapper — static metadata | `src/app/(auth)/login/page.tsx` |
+| Server wrapper — static metadata | `src/app/(auth)/register/page.tsx` |
+| Client component (moved from page.tsx) | `src/app/(main)/HomeClient.tsx` |
+| Client component (moved from page.tsx) | `src/app/(main)/search/SearchPageClient.tsx` |
+| Client component (moved from page.tsx) | `src/app/(main)/write/WritePageClient.tsx` |
+| Client component (moved from page.tsx) | `src/app/(main)/profile/ProfilePageClient.tsx` |
+| Client component (moved from page.tsx) | `src/app/(main)/posts/[id]/PostDetailClient.tsx` |
+| Client component (moved from page.tsx) | `src/app/(main)/profile/[username]/UserProfileClient.tsx` |
