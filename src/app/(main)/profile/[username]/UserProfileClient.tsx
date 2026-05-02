@@ -67,7 +67,7 @@ export default function UserProfileClient({ username }: { username: string }) {
         <div className="bg-white rounded-lg p-6 mb-6 shadow-sm">
           <div className="flex flex-col sm:flex-row items-center gap-6">
             <Image
-              src={viewedProfile.avatarUrl || '/assets/images/default-avatar.png'}
+              src={viewedProfile.avatarUrl || '/assets/images/default-avatar.svg'}
               alt={viewedProfile.name}
               width={120}
               height={120}

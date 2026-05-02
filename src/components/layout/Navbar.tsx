@@ -104,7 +104,7 @@ export default function Navbar() {
                                     <div className="flex h-12 items-center rounded-xl border border-gray-300 bg-white px-4 focus-within:border-blue-500 transition-colors">
                                         <div className="flex h-10 w-10 items-center justify-center">
                                             <Image
-                                                src="/assets/icons/search.svg"
+                                                src="/assets/icons/Search.svg"
                                                 alt="Search"
                                                 width={20}
                                                 height={20}
@@ -131,7 +131,7 @@ export default function Navbar() {
                                 className="lg:hidden p-1"
                             >
                                 <Image
-                                    src="/assets/icons/search.svg"
+                                    src="/assets/icons/Search.svg"
                                     alt="Search"
                                     width={24}
                                     height={24}
@@ -178,7 +178,7 @@ export default function Navbar() {
                                         >
                                             <Image
                                                 src={
-                                                    user?.avatarUrl || "/assets/images/default-avatar.png"
+                                                    user?.avatarUrl || "/assets/images/default-avatar.svg"
                                                 }
                                                 alt={user?.name || "User"}
                                                 width={40}
@@ -315,7 +315,7 @@ export default function Navbar() {
                             <form onSubmit={handleSearch} className="flex-1">
                                 <div className="flex h-12 items-center rounded-xl border border-gray-300 bg-white px-4 focus-within:border-blue-500 transition-colors">
                                     <Image
-                                        src="/assets/icons/search.svg"
+                                        src="/assets/icons/Search.svg"
                                         alt="Search"
                                         width={20}
                                         height={20}

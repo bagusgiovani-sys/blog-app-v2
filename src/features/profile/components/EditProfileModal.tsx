@@ -124,7 +124,7 @@ export default function EditProfileModal({ isOpen, onClose, user }: EditProfileM
           {/* Profile Picture */}
           <div className="flex flex-col items-center mb-6">
             <Image
-              src={avatarPreview || user.avatarUrl || '/assets/images/default-avatar.png'}
+              src={avatarPreview || user.avatarUrl || '/assets/images/default-avatar.svg'}
               alt={user.name}
               width={80}
               height={80}

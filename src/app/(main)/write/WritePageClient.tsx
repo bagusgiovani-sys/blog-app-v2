@@ -157,7 +157,7 @@ export default function WritePageClient() {
           </div>
           <div className="flex items-center gap-2">
             <Image
-              src={user.avatarUrl || '/assets/images/default-avatar.png'}
+              src={user.avatarUrl || '/assets/images/default-avatar.svg'}
               alt={user.name}
               width={40}
               height={40}

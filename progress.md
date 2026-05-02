@@ -39,6 +39,16 @@
 - [x] SEO optimization — per-page metadata, dynamic `generateMetadata` for posts and profiles
 - [x] Animations/transitions — `fadeIn` keyframe, staggered PostCard entrance
 
+### Phase 4 — Functionality Audit ✅
+- [x] Wire up `changePassword` API — was showing fake success (TODO stub)
+- [x] Add `likePost` to ProfilePosts — post cards on profile page couldn't be liked
+- [x] Fix `Search.svg` casing in Navbar — would 404 on Linux/production
+- [x] Null-safe `author.username` in PostDetail — link crashed when username missing
+- [x] Replace `default-avatar.png` refs with `default-avatar.svg` (7 files)
+- [x] Create `public/assets/images/default-avatar.svg` (was missing entirely)
+- [x] Create `public/assets/icons/user.svg` and `logout.svg` (Navbar dropdown icons)
+- [x] Delete empty `src/features/comments/hooks/useAuth.ts` stub
+
 ---
 
 ## Session Log

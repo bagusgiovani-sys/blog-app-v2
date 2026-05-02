@@ -41,7 +41,7 @@ export default function ProfilePageClient() {
           <div className="flex flex-col sm:flex-row items-center gap-6">
             <div className="relative">
               <Image
-                src={user.avatarUrl || '/assets/images/default-avatar.png'}
+                src={user.avatarUrl || '/assets/images/default-avatar.svg'}
                 alt={user.name}
                 width={120}
                 height={120}

@@ -1,10 +1,12 @@
-// features/profile/components/ChangePasswordForm.tsx
 'use client';
 
 import { useState } from 'react';
 import { EyeIcon, EyeOffIcon } from '@/components/icons';
+import { useProfile } from '../hooks/useProfile';
 
 export default function ChangePasswordForm() {
+  const { changePassword } = useProfile();
+
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -20,28 +22,22 @@ export default function ChangePasswordForm() {
     setError('');
     setSuccess('');
 
-    // Validation
     if (!currentPassword || !newPassword || !confirmPassword) {
       setError('All fields are required');
       return;
     }
-
     if (newPassword !== confirmPassword) {
       setError('New passwords do not match');
       return;
     }
-
     if (newPassword.length < 6) {
       setError('New password must be at least 6 characters');
       return;
     }
 
     setIsSubmitting(true);
-
     try {
-      // TODO: Call your API to change password
-      // await changePassword({ currentPassword, newPassword });
-      
+      await changePassword({ currentPassword, newPassword, confirmPassword });
       setSuccess('Password changed successfully!');
       setCurrentPassword('');
       setNewPassword('');
@@ -58,100 +54,35 @@ export default function ChangePasswordForm() {
       <h2 className="text-xl font-semibold text-gray-900 mb-6">Change Password</h2>
 
       {error && (
-        <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
-          {error}
-        </div>
+        <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">{error}</div>
       )}
-
       {success && (
-        <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg text-green-600 text-sm">
-          {success}
-        </div>
+        <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg text-green-600 text-sm">{success}</div>
       )}
 
       <form onSubmit={handleSubmit} className="space-y-5">
-        {/* Current Password */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Current Password
-          </label>
-          <div className="relative">
-            <input
-              type={showCurrentPassword ? 'text' : 'password'}
-              value={currentPassword}
-              onChange={(e) => setCurrentPassword(e.target.value)}
-              placeholder="Enter current password"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 pr-12"
-            />
-            <button
-              type="button"
-              onClick={() => setShowCurrentPassword(!showCurrentPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-gray-600"
-            >
-              {showCurrentPassword ? (
-                <EyeOffIcon className="w-5 h-5" />
-              ) : (
-                <EyeIcon className="w-5 h-5" />
-              )}
-            </button>
+        {[
+          { label: 'Current Password', value: currentPassword, setter: setCurrentPassword, show: showCurrentPassword, toggle: () => setShowCurrentPassword((v) => !v) },
+          { label: 'New Password', value: newPassword, setter: setNewPassword, show: showNewPassword, toggle: () => setShowNewPassword((v) => !v) },
+          { label: 'Confirm New Password', value: confirmPassword, setter: setConfirmPassword, show: showConfirmPassword, toggle: () => setShowConfirmPassword((v) => !v) },
+        ].map(({ label, value, setter, show, toggle }) => (
+          <div key={label}>
+            <label className="block text-sm font-medium text-gray-700 mb-2">{label}</label>
+            <div className="relative">
+              <input
+                type={show ? 'text' : 'password'}
+                value={value}
+                onChange={(e) => setter(e.target.value)}
+                placeholder={`Enter ${label.toLowerCase()}`}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 pr-12"
+              />
+              <button type="button" onClick={toggle} className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-gray-600">
+                {show ? <EyeOffIcon className="w-5 h-5" /> : <EyeIcon className="w-5 h-5" />}
+              </button>
+            </div>
           </div>
-        </div>
+        ))}
 
-        {/* New Password */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            New Password
-          </label>
-          <div className="relative">
-            <input
-              type={showNewPassword ? 'text' : 'password'}
-              value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)}
-              placeholder="Enter new password"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 pr-12"
-            />
-            <button
-              type="button"
-              onClick={() => setShowNewPassword(!showNewPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-gray-600"
-            >
-              {showNewPassword ? (
-                <EyeOffIcon className="w-5 h-5" />
-              ) : (
-                <EyeIcon className="w-5 h-5" />
-              )}
-            </button>
-          </div>
-        </div>
-
-        {/* Confirm New Password */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Confirm New Password
-          </label>
-          <div className="relative">
-            <input
-              type={showConfirmPassword ? 'text' : 'password'}
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              placeholder="Enter new password again"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 pr-12"
-            />
-            <button
-              type="button"
-              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-gray-600"
-            >
-              {showConfirmPassword ? (
-                <EyeOffIcon className="w-5 h-5" />
-              ) : (
-                <EyeIcon className="w-5 h-5" />
-              )}
-            </button>
-          </div>
-        </div>
-
-        {/* Submit Button */}
         <button
           type="submit"
           disabled={isSubmitting}

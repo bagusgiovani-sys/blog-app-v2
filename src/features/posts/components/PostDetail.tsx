@@ -109,11 +109,11 @@ export default function PostDetail({
         {/* Author & Date */}
         <div className="flex items-center gap-4 mb-6 pb-6 border-b border-gray-200">
           <Link
-            href={`/profile/${post.author.username}`}
+            href={post.author.username ? `/profile/${post.author.username}` : '#'}
             className="flex items-center gap-3 hover:opacity-80"
           >
             <Image
-              src={post.author.avatarUrl || '/assets/images/default-avatar.png'}
+              src={post.author.avatarUrl || '/assets/images/default-avatar.svg'}
               alt={post.author.name}
               width={48}
               height={48}
@@ -221,7 +221,7 @@ export default function PostDetail({
               <form onSubmit={handleAddComment} className="mb-6">
                 <div className="flex gap-3">
                   <Image
-                    src={currentUser.avatarUrl || '/assets/images/default-avatar.png'}
+                    src={currentUser.avatarUrl || '/assets/images/default-avatar.svg'}
                     alt={currentUser.name}
                     width={40}
                     height={40}

@@ -50,3 +50,24 @@ Each entry: date, what changed, files touched, commit hash.
 | Client component (moved from page.tsx) | `src/app/(main)/profile/ProfilePageClient.tsx` |
 | Client component (moved from page.tsx) | `src/app/(main)/posts/[id]/PostDetailClient.tsx` |
 | Client component (moved from page.tsx) | `src/app/(main)/profile/[username]/UserProfileClient.tsx` |
+
+## 2026-05-02 — `(pending)` — Phase 4: Functionality audit fixes
+
+**Files changed:** 10 files
+
+| Change | Full File Path |
+|--------|----------------|
+| Wire up `changePassword` API call (was stubbed with TODO) | `src/features/profile/components/ChangePasswordForm.tsx` |
+| Add `likePost` + staggered animation to profile posts; Link replace window.location | `src/features/profile/components/ProfilePosts.tsx` |
+| Fix `Search.svg` casing (3 occurrences) | `src/components/layout/Navbar.tsx` |
+| Null-safe `author.username` on profile link | `src/features/posts/components/PostDetail.tsx` |
+| `default-avatar.png` → `default-avatar.svg` | `src/components/layout/Navbar.tsx` |
+| `default-avatar.png` → `default-avatar.svg` | `src/features/posts/components/PostDetail.tsx` |
+| `default-avatar.png` → `default-avatar.svg` | `src/app/(main)/write/WritePageClient.tsx` |
+| `default-avatar.png` → `default-avatar.svg` | `src/app/(main)/profile/ProfilePageClient.tsx` |
+| `default-avatar.png` → `default-avatar.svg` | `src/app/(main)/profile/[username]/UserProfileClient.tsx` |
+| `default-avatar.png` → `default-avatar.svg` | `src/features/profile/components/EditProfileModal.tsx` |
+| `default-avatar.png` → `default-avatar.svg` | `src/features/comments/components/CommentItem.tsx` |
+| New SVG default avatar asset | `public/assets/images/default-avatar.svg` |
+| New icon assets for Navbar dropdown | `public/assets/icons/user.svg`, `public/assets/icons/logout.svg` |
+| Deleted empty stub | `src/features/comments/hooks/useAuth.ts` |

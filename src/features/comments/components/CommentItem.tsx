@@ -24,7 +24,7 @@ export default function CommentItem({ comment, currentUser, onDelete }: CommentI
     <div className="flex gap-3 py-4 border-b border-gray-100 last:border-0">
       <Link href={`/profile/${comment.author.username}`}>
         <Image
-          src={comment.author.avatarUrl || '/assets/images/default-avatar.png'}
+          src={comment.author.avatarUrl || '/assets/images/default-avatar.svg'}
           alt={comment.author.name}
           width={40}
           height={40}
