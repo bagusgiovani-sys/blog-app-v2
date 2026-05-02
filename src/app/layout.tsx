@@ -11,8 +11,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Challenge 10 -  Bagus Giovani ",
-  description: "Blog App Challenge - Next.js",
+  title: {
+    default: 'Blog App',
+    template: '%s — Blog App',
+  },
+  description: 'Discover, write, and share blog posts with the world.',
 };
 
 export default function RootLayout({

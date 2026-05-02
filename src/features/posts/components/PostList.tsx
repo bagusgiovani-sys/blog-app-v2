@@ -96,12 +96,10 @@ export default function PostList({
   // Posts list
   return (
     <div className="space-y-4">
-      {posts.map((post) => (
-        <PostCard 
-          key={post.id}
-          post={post}
-          onLikeClick={() => handleLike(post.id)}
-        />
+      {posts.map((post, i) => (
+        <div key={post.id} className="animate-fade-in" style={{ animationDelay: `${i * 0.05}s` }}>
+          <PostCard post={post} onLikeClick={() => handleLike(post.id)} />
+        </div>
       ))}
     </div>
   );

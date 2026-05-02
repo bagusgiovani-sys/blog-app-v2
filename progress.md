@@ -23,15 +23,15 @@
 
 ## Planned Changes
 
-### Phase 1 — Bug Fixes (agreed)
-- [ ] Fix `.env.local`: add `/api` suffix to `NEXT_PUBLIC_API_URL`
-- [ ] Remove `console.log` from `src/lib/api.ts`
+### Phase 1 — Bug Fixes ✅ (commit `0d70830`)
+- [x] Fix `.env.local`: add `/api` suffix to `NEXT_PUBLIC_API_URL`
+- [x] Remove `console.log` from `src/lib/api.ts`
 
-### Phase 2 — Architecture Improvements (agreed)
-- [ ] Add `src/middleware.ts` for server-side route protection
-- [ ] Refactor `authSlice`: remove `loginForm`/`registerForm` state, move to local state in components
-- [ ] Scope `serializableCheck` to only affected actions instead of blanket `false`
-- [ ] Implement or remove `AuthGuard.tsx` and `Protected.tsx`
+### Phase 2 — Architecture Improvements ✅ (commit `0d70830`)
+- [x] Add `src/middleware.ts` for server-side route protection
+- [x] Refactor `authSlice`: remove `loginForm`/`registerForm` state, move to local state in components
+- [x] Scope `serializableCheck` to only affected actions instead of blanket `false`
+- [x] Remove empty `AuthGuard.tsx` and `Protected.tsx`
 
 ### Phase 3 — Bonus Features (from README checklist)
 - [ ] Search functionality (SearchBar exists, wire up to `/search` page)
