@@ -66,11 +66,11 @@
 - [x] **[SEC]** Add `Secure` cookie flag for production in `setAuthToken` — `src/lib/api.ts:112`
 
 #### Milestone 3 — Dead Code & Polish
-- [ ] **[QUAL]** Delete empty stub files: `PostForm.tsx`, `useLogin.ts`
-- [ ] **[QUAL]** Delete unused UI components: `Dropdown.tsx`, `DropdownItem.tsx`, `Modal.tsx`
-- [ ] **[QUAL]** Fix Navbar typo `grouh-30` — `src/components/layout/Navbar.tsx:165`
-- [ ] **[QUAL]** Remove redundant `UserType`/`PostType`/`CommentType` re-exports — `src/types/index.ts:309`
-- [ ] **[QUAL]** Remove unused `getPasswordStrength` export — `src/utils/validation.ts:43`
+- [x] **[QUAL]** Delete empty stub files: `PostForm.tsx`, `useLogin.ts`
+- [x] **[QUAL]** Delete unused UI components: `Dropdown.tsx`, `DropdownItem.tsx`, `Modal.tsx`
+- [x] **[QUAL]** Fix Navbar typo `grouh-30` — `src/components/layout/Navbar.tsx:165`
+- [x] **[QUAL]** Remove redundant `UserType`/`PostType`/`CommentType` re-exports — `src/types/index.ts:309`
+- [x] **[QUAL]** Remove unused `getPasswordStrength` export — `src/utils/validation.ts:43`
 
 ---
 
@@ -79,4 +79,4 @@
 | Date | Work Done | Tokens Used |
 |------|-----------|-------------|
 | 2026-05-02 | Initial codebase analysis, created CLAUDE.md, architecture rating, this progress.md | — |
-| 2026-05-12 | Deep audit (Ultra-Instinct session 2): generated origin.md, added Phase 5 milestones | — |
+| 2026-05-12 | Deep audit (Ultra-Instinct session 2): generated origin.md, executed all Phase 5 milestones | — |

@@ -72,6 +72,21 @@ Each entry: date, what changed, files touched, commit hash.
 | New icon assets for Navbar dropdown | `public/assets/icons/user.svg`, `public/assets/icons/logout.svg` |
 | Deleted empty stub | `src/features/comments/hooks/useAuth.ts` |
 
+## 2026-05-12 — Phase 5 Milestone 3: Dead code removal and polish
+
+**Files changed:** 7 files
+
+| Change | Full File Path |
+|--------|----------------|
+| Delete empty stub | `src/features/posts/components/PostForm.tsx` |
+| Delete empty stub | `src/features/auth/hooks/useLogin.ts` |
+| Delete unused UI component | `src/components/ui/Dropdown.tsx` |
+| Delete unused UI component | `src/components/ui/DropdownItem.tsx` |
+| Delete unused UI component | `src/components/ui/Modal.tsx` |
+| Fix `grouh-30 w-30 mr-12` Tailwind typo on Write Post icon | `src/components/layout/Navbar.tsx` |
+| Remove redundant `UserType`/`PostType`/`CommentType` re-exports | `src/types/index.ts` |
+| Remove unused `getPasswordStrength` export | `src/utils/validation.ts` |
+
 ## 2026-05-12 — Phase 5 Milestone 2: Major quality fixes
 
 **Files changed:** 8 files

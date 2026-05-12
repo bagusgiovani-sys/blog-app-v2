@@ -302,13 +302,3 @@ export interface PostsByUsernameResponse extends PaginatedResponse<Post> {
   };
 }
 
-// ============================================
-// EXPORT ALL
-// ============================================
-
-export type {
-  // Re-export for convenience
-  User as UserType,
-  Post as PostType,
-  Comment as CommentType,
-};

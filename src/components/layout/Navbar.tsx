@@ -160,12 +160,7 @@ export default function Navbar() {
                                         alt="Write"
                                         width={68}
                                         height={68}
-                                        className="
-                                        transition-transform duration-300 ease-out
-                                        grouh-30 w-30
-                                        mr-12
-                                        "
-                                        
+                                        className="transition-transform duration-300 ease-out"
                                     />
                                 </Link>
                                     

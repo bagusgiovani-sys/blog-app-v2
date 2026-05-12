@@ -37,25 +37,6 @@ export function getPasswordError(password: string): string | null {
 }
 
 /**
- * Validate password strength
- * Returns: 'weak', 'medium', 'strong'
- */
-export function getPasswordStrength(password: string): 'weak' | 'medium' | 'strong' {
-  if (password.length < 8) return 'weak';
-  
-  const hasUpperCase = /[A-Z]/.test(password);
-  const hasLowerCase = /[a-z]/.test(password);
-  const hasNumber = /[0-9]/.test(password);
-  const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
-  
-  const strength = [hasUpperCase, hasLowerCase, hasNumber, hasSpecialChar].filter(Boolean).length;
-  
-  if (strength <= 2) return 'weak';
-  if (strength === 3) return 'medium';
-  return 'strong';
-}
-
-/**
  * Validate passwords match
  */
 export function passwordsMatch(password: string, confirmPassword: string): boolean {
