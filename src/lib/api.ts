@@ -69,21 +69,21 @@ api.interceptors.response.use(
  */
 export const getErrorMessage = (error: unknown): string => {
   if (axios.isAxiosError(error)) {
-    const responseData = error.response?.data as any;
-    
+    const responseData = error.response?.data as { message?: string | string[]; error?: string } | undefined;
+
     if (responseData?.message) {
-      return Array.isArray(responseData.message) 
-        ? responseData.message[0] 
+      return Array.isArray(responseData.message)
+        ? responseData.message[0]
         : responseData.message;
     }
-    
+
     if (responseData?.error) {
       return responseData.error;
     }
-    
+
     return error.message || 'An unexpected error occurred';
   }
-  
+
   return 'An unexpected error occurred';
 };
 

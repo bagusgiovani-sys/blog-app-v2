@@ -14,7 +14,7 @@ import {
   deletePost,
   likePost,
 } from './post.service';
-import { Post, PaginatedResponse, CreatePostDto, UpdatePostDto, SearchParams, PaginationParams } from '@/types';
+import { Post, CreatePostDto, UpdatePostDto, SearchParams, PaginationParams } from '@/types';
 import { getErrorMessage } from '@/lib/api';
 import { createComment, removeComment } from '../comments/commentSlice';
 

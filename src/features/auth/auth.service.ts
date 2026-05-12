@@ -60,8 +60,5 @@ export const logout = (): void => {
 // ============================================
 // EXPORT ALL FUNCTIONS
 // ============================================
-export default {
-  register,
-  login,
-  logout,
-};
+const authService = { register, login, logout };
+export default authService;

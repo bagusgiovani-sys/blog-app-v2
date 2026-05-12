@@ -45,6 +45,7 @@ export default function WritePageClient() {
 
   useEffect(() => {
     if (isEditMode && postId && user) getPost(postId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isEditMode, postId, user]);
 
   useEffect(() => {

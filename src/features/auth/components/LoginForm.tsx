@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { useAuth } from '../hooks/useAuth';
 import { getEmailError, getPasswordError } from '@/utils/validation';
 import Card from '@/components/ui/Card';
@@ -11,7 +10,6 @@ import Button from '@/components/ui/Button';
 import ErrorMessage from '@/components/ui/ErrorMessage';
 
 export default function LoginForm() {
-  const router = useRouter();
   const { login, isLoading, error: serverError } = useAuth();
 
   const [email, setEmail] = useState('');
@@ -93,7 +91,7 @@ export default function LoginForm() {
         </Button>
 
         <p className="text-center text-sm text-[var(--text-secondary)] mt-4">
-          Don't have an account?{' '}
+          Don&apos;t have an account?{' '}
           <Link
             href="/register"
             className="text-[var(--primary)] font-medium hover:text-[var(--primary-hover)] transition-colors"

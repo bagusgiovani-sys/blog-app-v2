@@ -14,6 +14,7 @@ export default function PostDetailClient({ postId }: { postId: string }) {
 
   useEffect(() => {
     if (postId) getPost(postId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [postId]);
 
   if (isLoading && !post) {

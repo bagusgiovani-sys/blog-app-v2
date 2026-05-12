@@ -130,10 +130,5 @@ export const changePassword = async (
 // ============================================
 // EXPORT ALL FUNCTIONS
 // ============================================
-export default {
-  getMyProfile,
-  getPublicProfileByUsername,
-  getUserById,
-  updateProfile,
-  changePassword,
-};
+const profileService = { getMyProfile, getPublicProfileByUsername, getUserById, updateProfile, changePassword };
+export default profileService;

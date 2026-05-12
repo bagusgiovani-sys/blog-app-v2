@@ -69,8 +69,5 @@ export const deleteComment = async (
 // ============================================
 // EXPORT ALL FUNCTIONS
 // ============================================
-export default {
-  getComments,
-  addComment,
-  deleteComment,
-};
+const commentService = { getComments, addComment, deleteComment };
+export default commentService;

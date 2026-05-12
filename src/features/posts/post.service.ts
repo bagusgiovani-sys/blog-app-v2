@@ -281,7 +281,7 @@ export const getPostsByUserId = async (
 // ============================================
 // EXPORT ALL FUNCTIONS
 // ============================================
-export default {
+const postService = {
   getRecommendedPosts,
   getMostLikedPosts,
   getMyPosts,
@@ -296,3 +296,4 @@ export default {
   getPostsByUsername,
   getPostsByUserId,
 };
+export default postService;

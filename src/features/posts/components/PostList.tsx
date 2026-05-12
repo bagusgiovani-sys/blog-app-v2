@@ -18,15 +18,14 @@ export default function PostList({
   initialPage = 1,
   limit = 10 
 }: PostListProps) {
-  const { 
-    posts, 
-    isLoading, 
-    error, 
-    getRecommended, 
-    getMostLiked, 
+  const {
+    posts,
+    isLoading,
+    error,
+    getRecommended,
+    getMostLiked,
     getMyPosts,
     likePost,
-    clearError 
   } = usePosts();
 
   // Fetch posts on mount

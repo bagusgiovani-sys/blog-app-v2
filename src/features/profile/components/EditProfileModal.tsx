@@ -82,8 +82,8 @@ export default function EditProfileModal({ isOpen, onClose, user }: EditProfileM
       await updateProfile(updateData);
       onClose();
       router.refresh();
-    } catch (err: any) {
-      setError(err.message || 'Failed to update profile');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to update profile');
     } finally {
       setIsSubmitting(false);
     }

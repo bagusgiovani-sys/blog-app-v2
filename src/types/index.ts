@@ -160,7 +160,7 @@ export interface ApiError {
   message: string | string[];
   timestamp: string;
   path: string;
-  details?: any;
+  details?: unknown;
 }
 
 // ============================================
@@ -262,7 +262,7 @@ export interface NavbarState {
 
 export interface ModalState {
   isOpen: boolean;
-  data?: any;
+  data?: unknown;
 }
 
 export interface CommentsModalProps {
