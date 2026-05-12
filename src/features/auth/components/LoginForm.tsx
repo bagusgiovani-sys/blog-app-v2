@@ -2,14 +2,18 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { useAuth } from '../hooks/useAuth';
 import { getEmailError, getPasswordError } from '@/utils/validation';
+import { getRedirectAfterLogin } from '@/constants/routes';
 import Card from '@/components/ui/Card';
 import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
 import ErrorMessage from '@/components/ui/ErrorMessage';
 
 export default function LoginForm() {
+  const searchParams = useSearchParams();
+  const redirectTo = getRedirectAfterLogin(searchParams.get('returnUrl') ?? undefined);
   const { login, isLoading, error: serverError } = useAuth();
 
   const [email, setEmail] = useState('');
@@ -41,7 +45,7 @@ export default function LoginForm() {
     if (emailErr || passwordErr) return;
 
     try {
-      await login({ email, password });
+      await login({ email, password }, redirectTo);
     } catch {
       // error already in Redux state via useAuth
     }
