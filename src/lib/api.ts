@@ -109,7 +109,8 @@ export const getAuthToken = (): string | null => {
 export const setAuthToken = (token: string): void => {
   if (typeof window !== 'undefined') {
     localStorage.setItem('token', token);
-    document.cookie = `token=${token}; path=/; SameSite=Lax`;
+    const secure = location.protocol === 'https:' ? '; Secure' : '';
+    document.cookie = `token=${token}; path=/; SameSite=Lax${secure}`;
   }
 };
 

@@ -1,43 +1,21 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { usePosts } from '@/features/posts/hooks/usePosts';
 import PostList from '@/features/posts/components/PostList';
 import MostLiked from '@/features/posts/components/MostLiked';
 import Pagination from '@/components/ui/Pagination';
-import LoadingSpinner from '@/components/ui/LoadingSpinner';
-import ErrorMessage from '@/components/ui/ErrorMessage';
 
 export default function HomeClient() {
   const [currentPage, setCurrentPage] = useState(1);
   const limit = 10;
 
-  const { posts, total, page, lastPage, isLoading, error, getRecommended } = usePosts();
-
-  useEffect(() => {
-    getRecommended({ page: currentPage, limit });
-  }, [currentPage, getRecommended]);
+  const { page, lastPage } = usePosts();
 
   const handlePageChange = (newPage: number) => {
     setCurrentPage(newPage);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-
-  if (isLoading && posts.length === 0) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <LoadingSpinner />
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen flex items-center justify-center px-4">
-        <ErrorMessage message={error} />
-      </div>
-    );
-  }
 
   return (
     <main className="min-h-screen bg-gray-50 animate-fade-in">

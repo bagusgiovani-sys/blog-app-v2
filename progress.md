@@ -58,12 +58,12 @@
 - [x] **[BUG]** Fix `comment.svg` casing — rename reference from `comment.svg` to `Comment.svg` — `src/features/posts/components/PostCard.tsx:149`
 
 #### Milestone 2 — Major Quality Fixes
-- [ ] **[QUAL]** Fix `LoginForm` to fetch user profile after login (consistent with `useAuth.login()`) — `src/features/auth/components/LoginForm.tsx:47`
-- [ ] **[QUAL]** Remove double-fetch on homepage — eliminate `getRecommended` call from `HomeClient` and let `PostList` own the fetch — `src/app/(main)/HomeClient.tsx`
-- [ ] **[ARCH]** Remove dead `fetchUserById` no-op thunk fulfillment or store the result — `src/features/profile/profileSlice.ts:134`
-- [ ] **[QUAL]** Replace `window.location.reload()` in `EditProfileModal` with `router.refresh()` + Redux re-fetch — `src/features/profile/components/EditProfileModal.tsx:96`
-- [ ] **[QUAL]** Fix `EditProfileModal` `any` type → `UpdateProfileDto`, wire up bio field — `src/features/profile/components/EditProfileModal.tsx:74,187`
-- [ ] **[SEC]** Add `Secure` cookie flag for production in `setAuthToken` — `src/lib/api.ts:112`
+- [x] **[QUAL]** Fix `LoginForm` to fetch user profile after login (consistent with `useAuth.login()`) — `src/features/auth/components/LoginForm.tsx:47`
+- [x] **[QUAL]** Remove double-fetch on homepage — eliminate `getRecommended` call from `HomeClient` and let `PostList` own the fetch — `src/app/(main)/HomeClient.tsx`
+- [x] **[ARCH]** Remove dead `fetchUserById` no-op thunk fulfillment or store the result — `src/features/profile/profileSlice.ts:134`
+- [x] **[QUAL]** Replace `window.location.reload()` in `EditProfileModal` with `router.refresh()` + Redux re-fetch — `src/features/profile/components/EditProfileModal.tsx:96`
+- [x] **[QUAL]** Fix `EditProfileModal` `any` type → `UpdateProfileDto`, wire up bio field — `src/features/profile/components/EditProfileModal.tsx:74,187`
+- [x] **[SEC]** Add `Secure` cookie flag for production in `setAuthToken` — `src/lib/api.ts:112`
 
 #### Milestone 3 — Dead Code & Polish
 - [ ] **[QUAL]** Delete empty stub files: `PostForm.tsx`, `useLogin.ts`

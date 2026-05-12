@@ -94,17 +94,10 @@ export const getUserById = async (id: number): Promise<User> => {
 export const updateProfile = async (data: UpdateProfileDto): Promise<User> => {
   const formData = new FormData();
   
-  if (data.name) {
-    formData.append('name', data.name);
-  }
-  
-  if (data.headline) {
-    formData.append('headline', data.headline);
-  }
-  
-  if (data.avatar) {
-    formData.append('avatar', data.avatar);
-  }
+  if (data.name) formData.append('name', data.name);
+  if (data.headline) formData.append('headline', data.headline);
+  if (data.bio) formData.append('bio', data.bio);
+  if (data.avatar) formData.append('avatar', data.avatar);
 
   const response = await api.patch('/users/profile', formData, {
     headers: {

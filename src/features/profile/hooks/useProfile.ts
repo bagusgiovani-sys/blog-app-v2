@@ -10,7 +10,6 @@ import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import {
   fetchMyProfile,
   fetchPublicProfile,
-  fetchUserById,
   updateMyProfile,
   updatePassword,
   clearViewedProfile,
@@ -38,16 +37,6 @@ export const useProfile = () => {
       await dispatch(fetchPublicProfile({ username, params })).unwrap();
     } catch (error) {
       console.error('Failed to fetch public profile:', error);
-      throw error;
-    }
-  }, [dispatch]);
-
-  // Get user by ID
-  const getUserById = useCallback(async (id: number) => {
-    try {
-      await dispatch(fetchUserById(id)).unwrap();
-    } catch (error) {
-      console.error('Failed to fetch user:', error);
       throw error;
     }
   }, [dispatch]);
@@ -89,7 +78,6 @@ export const useProfile = () => {
     error,
     getMyProfile,
     getPublicProfile,
-    getUserById,
     updateProfile,
     changePassword,
     clearViewed,

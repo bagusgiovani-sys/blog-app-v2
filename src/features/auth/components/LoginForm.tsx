@@ -3,8 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { loginUser } from '../authSlice';
+import { useAuth } from '../hooks/useAuth';
 import { getEmailError, getPasswordError } from '@/utils/validation';
 import Card from '@/components/ui/Card';
 import Input from '@/components/ui/Input';
@@ -12,9 +11,8 @@ import Button from '@/components/ui/Button';
 import ErrorMessage from '@/components/ui/ErrorMessage';
 
 export default function LoginForm() {
-  const dispatch = useAppDispatch();
   const router = useRouter();
-  const { isLoading, error: serverError } = useAppSelector((state) => state.auth);
+  const { login, isLoading, error: serverError } = useAuth();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -44,9 +42,10 @@ export default function LoginForm() {
 
     if (emailErr || passwordErr) return;
 
-    const result = await dispatch(loginUser({ email, password }));
-    if (loginUser.fulfilled.match(result)) {
-      router.push('/');
+    try {
+      await login({ email, password });
+    } catch {
+      // error already in Redux state via useAuth
     }
   };
 

@@ -72,6 +72,22 @@ Each entry: date, what changed, files touched, commit hash.
 | New icon assets for Navbar dropdown | `public/assets/icons/user.svg`, `public/assets/icons/logout.svg` |
 | Deleted empty stub | `src/features/comments/hooks/useAuth.ts` |
 
+## 2026-05-12 — Phase 5 Milestone 2: Major quality fixes
+
+**Files changed:** 8 files
+
+| Change | Full File Path |
+|--------|----------------|
+| `LoginForm` now uses `useAuth.login()` (fetches profile after login) instead of raw dispatch | `src/features/auth/components/LoginForm.tsx` |
+| Remove double-fetch: `HomeClient` no longer calls `getRecommended` itself | `src/app/(main)/HomeClient.tsx` |
+| Delete dead `fetchUserById` thunk + no-op fulfillment handler | `src/features/profile/profileSlice.ts` |
+| Remove `getUserById` from `useProfile` hook (was never called) | `src/features/profile/hooks/useProfile.ts` |
+| Replace `window.location.reload()` with `router.refresh()` in `EditProfileModal` | `src/features/profile/components/EditProfileModal.tsx` |
+| Fix `any` → `UpdateProfileDto` in `EditProfileModal`, wire up bio field | `src/features/profile/components/EditProfileModal.tsx` |
+| Remove "Bio may not be saved" stale comment from bio field UI | `src/features/profile/components/EditProfileModal.tsx` |
+| Wire bio into PATCH `/users/profile` FormData | `src/features/profile/profile.service.ts` |
+| Add `Secure` cookie flag for HTTPS production | `src/lib/api.ts:112` |
+
 ## 2026-05-12 — Phase 5 Milestone 1: Critical fixes
 
 **Files changed:** 2 files

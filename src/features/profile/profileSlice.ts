@@ -3,14 +3,13 @@
  */
 
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { 
-  getMyProfile, 
-  getPublicProfileByUsername, 
-  getUserById,
-  updateProfile, 
-  changePassword 
+import {
+  getMyProfile,
+  getPublicProfileByUsername,
+  updateProfile,
+  changePassword
 } from './profile.service';
-import { User, PublicProfile, UpdateProfileDto, ChangePasswordDto, PaginationParams } from '@/types';
+import { User, PublicProfile, UpdateProfileDto, ChangePasswordDto } from '@/types';
 import { getErrorMessage } from '@/lib/api';
 
 // State interface
@@ -46,17 +45,6 @@ export const fetchPublicProfile = createAsyncThunk(
   async ({ username, params }: { username: string; params?: PaginationParams }, { rejectWithValue }) => {
     try {
       return await getPublicProfileByUsername(username, params);
-    } catch (error) {
-      return rejectWithValue(getErrorMessage(error));
-    }
-  }
-);
-
-export const fetchUserById = createAsyncThunk(
-  'profile/fetchById',
-  async (id: number, { rejectWithValue }) => {
-    try {
-      return await getUserById(id);
     } catch (error) {
       return rejectWithValue(getErrorMessage(error));
     }
@@ -122,20 +110,6 @@ const profileSlice = createSlice({
       state.viewedProfile = action.payload;
     });
     builder.addCase(fetchPublicProfile.rejected, (state, action) => {
-      state.isLoading = false;
-      state.error = action.payload as string;
-    });
-
-    // Fetch user by ID
-    builder.addCase(fetchUserById.pending, (state) => {
-      state.isLoading = true;
-      state.error = null;
-    });
-    builder.addCase(fetchUserById.fulfilled, (state, action) => {
-      state.isLoading = false;
-      // Could store this separately if needed
-    });
-    builder.addCase(fetchUserById.rejected, (state, action) => {
       state.isLoading = false;
       state.error = action.payload as string;
     });

@@ -3,8 +3,9 @@
 
 import { useState, useRef } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { CloseIcon } from '@/components/icons';
-import { User } from '@/types';
+import { User, UpdateProfileDto } from '@/types';
 import { useProfile } from '../hooks/useProfile';
 
 interface EditProfileModalProps {
@@ -14,6 +15,7 @@ interface EditProfileModalProps {
 }
 
 export default function EditProfileModal({ isOpen, onClose, user }: EditProfileModalProps) {
+  const router = useRouter();
   const [name, setName] = useState(user.name);
   const [headline, setHeadline] = useState(user.headline || '');
   const [bio, setBio] = useState(user.bio || '');
@@ -22,7 +24,7 @@ export default function EditProfileModal({ isOpen, onClose, user }: EditProfileM
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
   const fileInputRef = useRef<HTMLInputElement>(null);
-  
+
   const { updateProfile } = useProfile();
 
   // Handle file selection
@@ -70,30 +72,16 @@ export default function EditProfileModal({ isOpen, onClose, user }: EditProfileM
     setIsSubmitting(true);
 
     try {
-      // Prepare update data
-      const updateData: any = {};
-      
-      if (name !== user.name) {
-        updateData.name = name;
-      }
-      
-      if (headline !== (user.headline || '')) {
-        updateData.headline = headline;
-      }
-      
-      // Note: bio is not in the API according to your service file
-      // If your API supports bio, add it here
-      
-      if (avatar) {
-        updateData.avatar = avatar;
-      }
+      const updateData: UpdateProfileDto = {};
 
-      // Call the update API
+      if (name !== user.name) updateData.name = name;
+      if (headline !== (user.headline || '')) updateData.headline = headline;
+      if (bio !== (user.bio || '')) updateData.bio = bio;
+      if (avatar) updateData.avatar = avatar;
+
       await updateProfile(updateData);
-      
-      // Close modal and reload to show updated data
       onClose();
-      window.location.reload();
+      router.refresh();
     } catch (err: any) {
       setError(err.message || 'Failed to update profile');
     } finally {
@@ -184,7 +172,6 @@ export default function EditProfileModal({ isOpen, onClose, user }: EditProfileM
             />
           </div>
 
-          {/* Bio Field - Only show if your API supports it */}
           <div className="mb-6">
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Bio
@@ -196,9 +183,6 @@ export default function EditProfileModal({ isOpen, onClose, user }: EditProfileM
               rows={3}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 resize-none"
             />
-            <p className="text-xs text-gray-500 mt-1">
-              Note: Bio may not be saved if not supported by API
-            </p>
           </div>
 
           {/* Submit Button */}
