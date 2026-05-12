@@ -146,7 +146,7 @@ export default function PostCard({
                 className="flex items-center gap-1.5 text-gray-600 hover:text-blue-500 transition-colors"
               >
                 <Image
-                  src="/assets/icons/comment.svg"
+                  src="/assets/icons/Comment.svg"
                   alt="Comments"
                   width={20}
                   height={20}

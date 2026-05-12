@@ -51,8 +51,32 @@
 
 ---
 
+### Phase 5 — Phase 5 Critical & Major Fixes (Ultra-Instinct session 2)
+
+#### Milestone 1 — Critical Fixes
+- [x] **[ARCH]** Fix shared `posts` Redux state data-race — split `MostLiked` into its own isolated slice or local state so it doesn't overwrite the main feed — `src/features/posts/components/MostLiked.tsx`, `src/features/posts/postSlice.ts`
+- [x] **[BUG]** Fix `comment.svg` casing — rename reference from `comment.svg` to `Comment.svg` — `src/features/posts/components/PostCard.tsx:149`
+
+#### Milestone 2 — Major Quality Fixes
+- [ ] **[QUAL]** Fix `LoginForm` to fetch user profile after login (consistent with `useAuth.login()`) — `src/features/auth/components/LoginForm.tsx:47`
+- [ ] **[QUAL]** Remove double-fetch on homepage — eliminate `getRecommended` call from `HomeClient` and let `PostList` own the fetch — `src/app/(main)/HomeClient.tsx`
+- [ ] **[ARCH]** Remove dead `fetchUserById` no-op thunk fulfillment or store the result — `src/features/profile/profileSlice.ts:134`
+- [ ] **[QUAL]** Replace `window.location.reload()` in `EditProfileModal` with `router.refresh()` + Redux re-fetch — `src/features/profile/components/EditProfileModal.tsx:96`
+- [ ] **[QUAL]** Fix `EditProfileModal` `any` type → `UpdateProfileDto`, wire up bio field — `src/features/profile/components/EditProfileModal.tsx:74,187`
+- [ ] **[SEC]** Add `Secure` cookie flag for production in `setAuthToken` — `src/lib/api.ts:112`
+
+#### Milestone 3 — Dead Code & Polish
+- [ ] **[QUAL]** Delete empty stub files: `PostForm.tsx`, `useLogin.ts`
+- [ ] **[QUAL]** Delete unused UI components: `Dropdown.tsx`, `DropdownItem.tsx`, `Modal.tsx`
+- [ ] **[QUAL]** Fix Navbar typo `grouh-30` — `src/components/layout/Navbar.tsx:165`
+- [ ] **[QUAL]** Remove redundant `UserType`/`PostType`/`CommentType` re-exports — `src/types/index.ts:309`
+- [ ] **[QUAL]** Remove unused `getPasswordStrength` export — `src/utils/validation.ts:43`
+
+---
+
 ## Session Log
 
 | Date | Work Done | Tokens Used |
 |------|-----------|-------------|
 | 2026-05-02 | Initial codebase analysis, created CLAUDE.md, architecture rating, this progress.md | — |
+| 2026-05-12 | Deep audit (Ultra-Instinct session 2): generated origin.md, added Phase 5 milestones | — |

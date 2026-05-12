@@ -1,9 +1,9 @@
 // features/posts/components/MostLiked.tsx
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { usePosts } from '../hooks/usePosts';
+import { getMostLikedPosts } from '../post.service';
 import { formatDate } from '@/utils/formatDate';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import type { Post } from '@/types';
@@ -89,11 +89,15 @@ function MostLikedItem({ post }: MostLikedItemProps) {
 }
 
 export default function MostLiked() {
-  const { posts, isLoading, getMostLiked } = usePosts();
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getMostLiked({ limit: 5, page: 1 });
-  }, [getMostLiked]);
+    getMostLikedPosts({ limit: 5, page: 1 })
+      .then((res) => setPosts(res.data))
+      .catch(() => setPosts([]))
+      .finally(() => setIsLoading(false));
+  }, []);
 
   return (
     <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">

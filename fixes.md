@@ -71,3 +71,12 @@ Each entry: date, what changed, files touched, commit hash.
 | New SVG default avatar asset | `public/assets/images/default-avatar.svg` |
 | New icon assets for Navbar dropdown | `public/assets/icons/user.svg`, `public/assets/icons/logout.svg` |
 | Deleted empty stub | `src/features/comments/hooks/useAuth.ts` |
+
+## 2026-05-12 — Phase 5 Milestone 1: Critical fixes
+
+**Files changed:** 2 files
+
+| Change | Full File Path |
+|--------|----------------|
+| Fix data-race: `MostLiked` now fetches via local state instead of shared Redux `posts` slice | `src/features/posts/components/MostLiked.tsx` |
+| Fix `comment.svg` → `Comment.svg` casing (would 404 on Linux/production) | `src/features/posts/components/PostCard.tsx:149` |
