@@ -72,6 +72,17 @@ Each entry: date, what changed, files touched, commit hash.
 | New icon assets for Navbar dropdown | `public/assets/icons/user.svg`, `public/assets/icons/logout.svg` |
 | Deleted empty stub | `src/features/comments/hooks/useAuth.ts` |
 
+## 2026-05-12 — Phase 6: returnUrl fix + dead code
+
+**Files changed:** 6 files
+
+| Change | Full File Path |
+|--------|----------------|
+| `useAuth.login()` now accepts optional `redirectTo` param (default `/`) | `src/features/auth/hooks/useAuth.ts` |
+| `LoginForm` reads `?returnUrl=` from search params, passes to `login()` | `src/features/auth/components/LoginForm.tsx` |
+| Delete empty stubs | `src/features/profile/components/ProfileHeader.tsx`, `src/features/posts/components/SearchBar.tsx`, `src/features/auth/components/LogInButton.tsx` |
+| Delete unused constants file (no imports exist) | `src/constants/api.ts` |
+
 ## 2026-05-12 — Phase 5 Milestone 3: Dead code removal and polish
 
 **Files changed:** 7 files

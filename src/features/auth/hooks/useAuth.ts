@@ -17,15 +17,15 @@ export const useAuth = () => {
   const { user, token, isAuthenticated, isLoading, error } = useAppSelector((state) => state.auth);
 
   // Login
-  const login = useCallback(async (credentials: LoginDto) => {
+  const login = useCallback(async (credentials: LoginDto, redirectTo = '/') => {
     try {
       const result = await dispatch(loginUser(credentials)).unwrap();
-      
+
       // Fetch user profile after login
       const profile = await dispatch(fetchMyProfile()).unwrap();
       dispatch(setUser(profile));
-      
-      router.push('/');
+
+      router.push(redirectTo);
       return result;
     } catch (error) {
       throw error;

@@ -74,6 +74,17 @@
 
 ---
 
+### Phase 6 — Continuation Audit (2026-05-12)
+
+#### Milestone 1 — Functional Bug
+- [x] **[BUG]** `returnUrl` set by middleware but never consumed after login — `useAuth.login()` always redirects to `/` — fix `useAuth.ts` to accept `redirectTo` param, read `returnUrl` in `LoginForm`
+
+#### Milestone 2 — Dead Code
+- [x] **[QUAL]** Delete 3 empty stubs: `ProfileHeader.tsx`, `SearchBar.tsx`, `LogInButton.tsx`
+- [x] **[QUAL]** Delete entirely unused `src/constants/api.ts` (no file imports `API_ENDPOINTS`)
+
+---
+
 ## Session Log
 
 | Date | Work Done | Tokens Used |
